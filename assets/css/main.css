@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-family: 'Figtree', sans-serif;
+  color: #28323E;
+
+  & .el-popper__arrow {
+    display: none;
+  }
+  
+}
+
+body {
+  margin: 0px;
+}
+
+#__nuxt {
+
+  & .el-sub-menu__title, .el-menu-item {
+    border-radius: var(--el-border-radius-base);
+  }
+
+  & .el-menu-item.is-active {
+    background-color: var(--el-color-primary-light-9);
+  }
+
+  & .el-form-item__label {
+    font-weight: 600;
+  }
+
+}

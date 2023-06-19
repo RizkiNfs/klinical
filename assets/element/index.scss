@@ -1,0 +1,53 @@
+
+$-colors: (
+  'primary': (
+    'base': #10A19D,
+  ),
+  'success': (
+    'base': #67c23a,
+  ),
+  'warning': (
+    'base': #e6a23c,
+  ),
+  'danger': (
+    'base': #f56c6c,
+  ),
+  'error': (
+    'base': #f56c6c,
+  ),
+  'info': (
+    'base': #909399,
+  ),
+  'text-color-pimary': #28323E,
+
+  );
+  
+$-card: (
+  'border-radius': 7px,
+);
+
+$-pagination: (
+  'border-radius': 7px,
+);
+
+$-border-radius: (
+  'base': 7px
+);
+
+$-popover: (
+  'border-radius': 7px,
+);
+
+$-messagebox: (
+  'border-radius': 7px,
+);
+
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: $-colors,
+  $card: $-card,
+  $pagination: $-pagination,
+  $border-radius: $-border-radius,
+  $popover: $-popover,
+  $messagebox: $-messagebox
+);
+
