@@ -1,18 +1,21 @@
 <script lang="ts" setup>
 const menus = [
-  { title: 'Layanan', icon: 'solar:clipboard-heart-bold-duotone' },
-  { title: 'Keuangan', icon: 'solar:wallet-money-bold-duotone' },
+  { title: 'Dashboard', to: '/app', icon: 'solar:graph-new-up-bold-duotone' },
+  { title: 'Layanan', to: '/app/service', icon: 'solar:clipboard-heart-bold-duotone' },
+  { title: 'Keuangan', to: '/app/finance', icon: 'solar:wallet-money-bold-duotone' },
   { 
     title: 'Pasien', 
     icon: 'solar:user-id-bold-duotone',
     submenu: [
-      { title: 'Daftar Pasien'},
+      { title: 'Daftar Pasien', to: '/app/patient/list'},
       { title: 'Rekam Medis'},
     ]
   },
-  { title: 'Reservasi', icon: 'solar:three-squares-bold-duotone' },
-  { title: 'Inventori', icon: 'solar:box-bold-duotone' },
+  { title: 'Reservasi', to: '/app/reservation', icon: 'solar:three-squares-bold-duotone' },
+  { title: 'Inventori', to: '/app/inventory', icon: 'solar:box-bold-duotone' },
 ]
+
+const route = useRoute()
 
 const token = useCookie('token')
 
@@ -39,11 +42,15 @@ const handleLogout = async () => {
             Klinks
           </h2>
         </div>
-        <el-menu class="!border-none mt-4">
+        <el-menu
+          class="!border-none mt-4"
+          router
+          :default-active="route.fullPath"
+        >
           <template v-for="(menu, index) in menus">
             <el-sub-menu
               v-if="menu.submenu"
-              :key="`${index}-1`"
+              :key="`${index}`"
               :index="`${index}`"
             >
               <template #title>
@@ -56,8 +63,9 @@ const handleLogout = async () => {
               <el-menu-item-group>
                 <el-menu-item 
                   v-for="(submenu, submenuIndex) in menu.submenu"
+                  :route="{path: submenu?.to || '#'}"
                   :key="`${index}-${submenuIndex}`"
-                  :index="`${index}-${submenuIndex}`"
+                  :index="submenu?.to || `${index}-${submenuIndex}`"
                 >
                   {{ submenu.title }}
                 </el-menu-item>
@@ -66,8 +74,9 @@ const handleLogout = async () => {
 
             <el-menu-item
               v-else
+              :route="{path: menu?.to || '#'}"
               :key="`${index}-2`"
-              :index="`${index}`"
+              :index="menu?.to || `${index}`"
             >
               <Icon
                 class="text-xl mr-4"

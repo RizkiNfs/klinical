@@ -8,9 +8,9 @@ import { patientSchema } from '../../../types/model/patient'
 const getPatients = publicProcedure
   .input(
     z.object({
-      page: z.number().optional(),
-      limit: z.number().optional(),
-      searchKey: z.string().optional(),
+      page: z.number().nullable().optional(),
+      limit: z.number().nullable().optional(),
+      searchKey: z.string().nullable().optional(),
     }),
   )
   .query(async ({ input }) => {
