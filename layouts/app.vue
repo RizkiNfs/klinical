@@ -13,6 +13,14 @@ const menus = [
   { title: 'Reservasi', icon: 'solar:three-squares-bold-duotone' },
   { title: 'Inventori', icon: 'solar:box-bold-duotone' },
 ]
+
+const token = useCookie('token')
+
+const handleLogout = async () => {
+  token.value = null
+  return await navigateTo('/')
+}
+
 </script>
 
 <template>
@@ -96,7 +104,7 @@ const menus = [
               </el-button>
             </template>
             <div class="flex flex-col gap-y-4">
-              <el-button>
+              <el-button @click="handleLogout">
                 <Icon
                   class="mr-2"
                   name="solar:exit-bold-duotone"

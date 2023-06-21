@@ -4,6 +4,7 @@ export default defineNuxtConfig({
     JWT_SECRET: '',
     MONGO_URL: '',
     DB_NAME: '',
+    JWT_KEY: '',
   },
   build: {
     transpile: ['trpc-nuxt']

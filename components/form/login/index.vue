@@ -10,13 +10,19 @@ const schema = {
 
 const handleSubmit: SubmissionHandler = async (values, field) => {
 
-  await login({
-    password: values.password,
-    username: values.username
-  })
-  field.setErrors({
-    password: 'Salah password Gan'
-  })
+  try {
+    await login({
+      password: values.password,
+      username: values.username
+    })
+
+    await navigateTo('/app') 
+  } catch(e) {
+    field.setErrors({
+      password: 'password atau username salah'
+    })
+  }
+
 }
 
 const form = resolveComponent('el-form') as string
@@ -37,6 +43,7 @@ const form = resolveComponent('el-form') as string
     <field-input
       name="password"
       label="Password"
+      type="password"
     />
     <el-button
       class="w-full mt-4"
