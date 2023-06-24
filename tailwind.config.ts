@@ -11,7 +11,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: 'var(--el-color-primary)'
+        primary: {
+          DEFAULT: 'var(--el-color-primary)',
+          'light-9': 'var(--el-color-primary-light-9)'
+        }
       },
     },
   },

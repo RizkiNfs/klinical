@@ -37,6 +37,7 @@
     "@trpc/server": "^10.30.0",
     "@vee-validate/nuxt": "^4.9.6",
     "bcrypt": "^5.1.0",
+    "dayjs": "^1.11.8",
     "jose": "^4.14.4",
     "mongodb": "^5.5.0",
     "trpc-nuxt": "^0.10.5",

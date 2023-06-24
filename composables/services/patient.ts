@@ -10,7 +10,7 @@ export const usePatients = ({ page, searchKey }: any) => {
       searchKey
     ],
     queryFn: () => $client.patients.getPatients.query({
-      page: page.value,
+      page: page?.value,
       searchKey: searchKey.value
     }),
     keepPreviousData: true
