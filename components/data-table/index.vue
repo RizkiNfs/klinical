@@ -12,7 +12,7 @@ const props = defineProps<{
 }>()
 
 
-type Rec = Record<`column.${string}`, (props: T) => any>
+type Rec = Record<`column-${string}`, (props: T) => any>
 
 interface Slot extends Rec {
   default(props: T): any
@@ -139,11 +139,11 @@ const ElForm = resolveComponent('el-form') as string
         :key="column.prop"
       >
         <template
-          v-if="$slots[`column.${column.prop as string}`]"
+          v-if="$slots[`column-${column.prop as string}`]"
           #default="scope"
         >
           <slot
-            :name="`column.${column.prop as string}`"
+            :name="`column-${column.prop as string}`"
             v-bind="scope.row"
           />
         </template>

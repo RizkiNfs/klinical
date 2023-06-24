@@ -1,4 +1,5 @@
 export * from './patient'
 export * from './reservation'
+export * from './service'
 export * from './user'
 export * from './utils'
