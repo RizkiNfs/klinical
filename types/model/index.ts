@@ -1,3 +1,4 @@
+export * from './inventory'
 export * from './patient'
 export * from './reservation'
 export * from './service'
