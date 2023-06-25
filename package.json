@@ -41,7 +41,7 @@
     "jose": "^4.14.4",
     "mongodb": "^5.5.0",
     "trpc-nuxt": "^0.10.5",
-    "vee-validate": "^4.9.6",
+    "vee-validate": "^4.10.1",
     "yup": "^1.2.0",
     "zod": "^3.21.4"
   }

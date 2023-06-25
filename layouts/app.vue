@@ -1,7 +1,9 @@
 <script lang="ts" setup>
 const menus = [
   { title: 'Dashboard', to: '/app', icon: 'solar:graph-new-up-bold-duotone' },
+  { title: 'Transaksi', to: '/app/transaction', icon: 'solar:hand-money-bold-duotone' },
   { title: 'Layanan', to: '/app/service', icon: 'solar:clipboard-heart-bold-duotone' },
+  { title: 'Inventori', to: '/app/inventory', icon: 'solar:box-bold-duotone' },
   { title: 'Keuangan', to: '/app/finance', icon: 'solar:wallet-money-bold-duotone' },
   { 
     title: 'Pasien', 
@@ -12,7 +14,6 @@ const menus = [
     ]
   },
   { title: 'Reservasi', to: '/app/reservation', icon: 'solar:three-squares-bold-duotone' },
-  { title: 'Inventori', to: '/app/inventory', icon: 'solar:box-bold-duotone' },
 ]
 
 const route = useRoute()

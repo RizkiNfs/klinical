@@ -16,7 +16,7 @@ type Rec = Record<`column-${string}`, (props: T) => any>
 
 interface Slot extends Rec {
   default(props: T): any
-  form(props: unknown): any
+  form(props: { values: T }): any
 }
 
 defineSlots<Slot>()
@@ -39,7 +39,6 @@ const search = ref('')
 const showDrawer = ref(false)
 const isEdit = ref(false)
 const formValues = ref({} as any)
-const formRef = ref()
 
 const handlePageChange = (page: number) => router.push({query: { page } })
 
@@ -148,7 +147,11 @@ const ElForm = resolveComponent('el-form') as string
           />
         </template>
       </el-table-column>
-      <el-table-column align="right">
+      <el-table-column
+        width="160"
+        fixed="right"
+        align="right"
+      >
         <template #header>
           <el-button
             type="primary"
@@ -158,7 +161,7 @@ const ElForm = resolveComponent('el-form') as string
               class="mr-2 text-lg"
               name="solar:add-square-line-duotone"
             />
-            Tambah {{ props.name }}
+            {{ props.name }}
           </el-button>
         </template>
         <template #default="scope">
@@ -238,14 +241,17 @@ const ElForm = resolveComponent('el-form') as string
     <el-scrollbar>
       <vee-form
         v-if="showDrawer"
-        ref="formRef"
+        v-slot="{ values }"
         label-position="top"
         status-icon
         :as="ElForm"
         :initial-values="(formValues as object)"
         @submit="handleSubmit"
       >
-        <slot name="form" />
+        <slot
+          name="form"
+          :values="(values as T)"
+        />
         <el-form-item>
           <el-button
             type="primary"

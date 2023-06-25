@@ -21,7 +21,8 @@ const { value, errorMessage } = useField<string | number | Record<string, any>>(
 </script>
 
 <template>
-  <el-form-item 
+  <el-form-item
+    :class="$attrs.class"
     :error="errorMessage" 
     :label="label"
   >

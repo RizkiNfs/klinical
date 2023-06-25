@@ -15,6 +15,7 @@ module.exports = {
     semi: ['error', 'never'],
     quotes: ['error', 'single'],
     indent: [2, 2, { 'SwitchCase': 1 }],
-    'vue/multi-word-component-names': 0
+    'vue/multi-word-component-names': 0,
+    'vue/no-setup-props-destructure': 0,
   }
 }

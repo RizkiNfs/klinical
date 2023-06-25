@@ -18,7 +18,7 @@ export function nFormatter(num = 0, digits = 0) {
   return (num / si[i].value).toFixed(digits).replace(rx, '$1') + si[i].symbol
 }
 export function decimalSeparator(number: number, separator = '.') {
-  let numberWithSeparator = new Number(number).toString()
+  let numberWithSeparator = new Number(number || 0).toString()
   numberWithSeparator = numberWithSeparator.replace(/\B(?=(\d{3})+(?!\d))/g, separator)
   if (separator === ',') numberWithSeparator = numberWithSeparator.replace('.', ',')
 

@@ -10,6 +10,7 @@ export class Mongo {
   public Reservation: Collection | null = null
   public Service: Collection | null = null
   public Inventory: Collection | null = null
+  public Transaction: Collection | null = null
 
   constructor(options?: MongoClientOptions ) {
     if (Mongo.instance) {
@@ -29,6 +30,7 @@ export class Mongo {
     this.Reservation = this.db.collection('reservations')
     this.Service = this.db.collection('services')
     this.Inventory = this.db.collection('inventories')
+    this.Transaction = this.db.collection('transactions')
 
     await this.createIndex()
   }
