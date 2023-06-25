@@ -1,10 +1,10 @@
 import { z } from 'zod'
-import { publicProcedure, router } from '../trpc'
+import { protectedProcedure, router } from '../trpc'
 import * as respository from '../../repository/reservation'
 import { reservationSchema } from '../../../types/model'
 
 
-const getReservations = publicProcedure
+const getReservations = protectedProcedure
   .input(
     z.object({
       startDate: z.union([z.string(), z.date()]).nullable().optional(),
@@ -26,7 +26,7 @@ const getReservations = publicProcedure
     }
   })
 
-const createReservation = publicProcedure
+const createReservation = protectedProcedure
   .input(reservationSchema.pick({
     date: true,
     patient: true,
@@ -43,7 +43,7 @@ const createReservation = publicProcedure
   })
 
 
-const deleteReservation = publicProcedure
+const deleteReservation = protectedProcedure
   .input(reservationSchema.pick({
     _id: true,
   }))
@@ -58,7 +58,7 @@ const deleteReservation = publicProcedure
   })
 
 
-const updateReservation = publicProcedure
+const updateReservation = protectedProcedure
   .input(reservationSchema.pick({
     date: true,
     _id: true,

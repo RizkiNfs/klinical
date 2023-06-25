@@ -1,11 +1,11 @@
 import { z } from 'zod'
-import { publicProcedure, router } from '../trpc'
+import { protectedProcedure, router } from '../trpc'
 import * as respository from '../../repository/inventory'
 import { createPaginationOpts } from '../../utils/common'
 import { inventorySchema } from '../../../types/model/'
 
 
-const getInventories = publicProcedure
+const getInventories = protectedProcedure
   .input(
     z.object({
       page: z.number().nullable().optional(),
@@ -29,7 +29,7 @@ const getInventories = publicProcedure
     }
   })
 
-const createInventory = publicProcedure
+const createInventory = protectedProcedure
   .input(inventorySchema.pick({
     name: true,
     description: true,
@@ -47,7 +47,7 @@ const createInventory = publicProcedure
   })
 
 
-const deleteInventory = publicProcedure
+const deleteInventory = protectedProcedure
   .input(inventorySchema.pick({
     _id: true,
   }))
@@ -62,7 +62,7 @@ const deleteInventory = publicProcedure
   })
 
 
-const updateInventory = publicProcedure
+const updateInventory = protectedProcedure
   .input(inventorySchema.pick({
     _id: true,
     name: true,

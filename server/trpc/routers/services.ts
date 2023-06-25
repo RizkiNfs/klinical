@@ -1,11 +1,11 @@
 import { z } from 'zod'
-import { publicProcedure, router } from '../trpc'
+import { protectedProcedure, router } from '../trpc'
 import * as respository from '../../repository/service'
 import { createPaginationOpts } from '../../utils/common'
 import { serviceSchema } from '../../../types/model/'
 
 
-const getServices = publicProcedure
+const getServices = protectedProcedure
   .input(
     z.object({
       page: z.number().nullable().optional(),
@@ -29,7 +29,7 @@ const getServices = publicProcedure
     }
   })
 
-const createService = publicProcedure
+const createService = protectedProcedure
   .input(serviceSchema.pick({
     name: true,
     description: true,
@@ -46,7 +46,7 @@ const createService = publicProcedure
   })
 
 
-const deleteService = publicProcedure
+const deleteService = protectedProcedure
   .input(serviceSchema.pick({
     _id: true,
   }))
@@ -61,7 +61,7 @@ const deleteService = publicProcedure
   })
 
 
-const updateService = publicProcedure
+const updateService = protectedProcedure
   .input(serviceSchema.pick({
     _id: true,
     name: true,

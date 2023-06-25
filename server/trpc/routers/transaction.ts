@@ -1,13 +1,13 @@
 import { z } from 'zod'
 import { TRPCError } from '@trpc/server'
-import { publicProcedure, router } from '../trpc'
+import { protectedProcedure, router } from '../trpc'
 import * as respository from '../../repository/transaction'
 import { createPaginationOpts } from '../../utils/common'
 import { transactionSchema } from '../../../types/model/'
 import { sumTransaction } from '../../../utils/transaction'
 
 
-const getTransactions = publicProcedure
+const getTransactions = protectedProcedure
   .input(
     z.object({
       page: z.number().nullable().optional(),
@@ -36,7 +36,7 @@ const getTransactions = publicProcedure
     }
   })
 
-const createTransaction = publicProcedure
+const createTransaction = protectedProcedure
   .input(transactionSchema.omit({
     _id: true,
     createdAt: true,
@@ -58,7 +58,7 @@ const createTransaction = publicProcedure
   })
 
 
-const deleteTransaction = publicProcedure
+const deleteTransaction = protectedProcedure
   .input(transactionSchema.pick({
     _id: true,
   }))
@@ -73,7 +73,7 @@ const deleteTransaction = publicProcedure
   })
 
 
-const updateTransaction = publicProcedure
+const updateTransaction = protectedProcedure
   .input(transactionSchema.omit({
     createdAt: true,
     updatedAt: true,

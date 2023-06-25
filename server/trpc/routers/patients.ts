@@ -1,11 +1,11 @@
 import { z } from 'zod'
-import { publicProcedure, router } from '../trpc'
+import { protectedProcedure, router } from '../trpc'
 import * as respository from '../../repository/patient'
 import { createPaginationOpts } from '../../utils/common'
 import { patientSchema } from '../../../types/model/patient'
 
 
-const getPatients = publicProcedure
+const getPatients = protectedProcedure
   .input(
     z.object({
       page: z.number().nullable().optional(),
@@ -29,7 +29,7 @@ const getPatients = publicProcedure
     }
   })
 
-const createPatient = publicProcedure
+const createPatient = protectedProcedure
   .input(patientSchema.pick({
     address: true,
     name:  true,
@@ -48,7 +48,7 @@ const createPatient = publicProcedure
   })
 
 
-const deletePatient = publicProcedure
+const deletePatient = protectedProcedure
   .input(patientSchema.pick({
     _id: true,
   }))
@@ -63,7 +63,7 @@ const deletePatient = publicProcedure
   })
 
 
-const updatePatient = publicProcedure
+const updatePatient = protectedProcedure
   .input(patientSchema.pick({
     _id: true,
     address: true,
