@@ -32,7 +32,7 @@ const handleClose = () => {
 
 const handleSubmit: SubmissionHandler = async (values) => {
   const description: string = values.description
-  const patient: Patient = JSON.parse(values.patient)
+  const patient: Patient = values.patient
   const date = values.date as Date
   const data = {
     _id: values._id,
@@ -121,9 +121,6 @@ const ElForm = resolveComponent('el-form') as string
         :initial-values="{
           date: props.selectedDate,
           ...(selectedReservation || {}),
-          ...(selectedReservation ? {patient: JSON.stringify({
-            name: selectedReservation.patient.name, phone: selectedReservation.patient.phone
-          })} : {})
         }"
         @submit="handleSubmit"
       >
@@ -140,6 +137,7 @@ const ElForm = resolveComponent('el-form') as string
           name="patient"
           label="Pasien"
           placeholder="Masukan nama atau kontak"
+          value-key="_id"
           filterable
           remote
           remote-show-suffix
@@ -150,7 +148,7 @@ const ElForm = resolveComponent('el-form') as string
             v-for="patient in patients?.data"
             :key="patient._id"
             :label="`${patient.name} - ${patient.phone}`"
-            :value="JSON.stringify({name: patient.name, phone: patient.phone})"
+            :value="patient"
           />
         </field-select>
         <field-input
