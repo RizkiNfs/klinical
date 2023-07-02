@@ -31,6 +31,10 @@ const { value, errorMessage } = useField<string>(toRef(props, 'name') as Ref<str
       v-model="value"
       v-bind="$attrs"
       :validate-event="false"
-    />
+    >
+      <template #prefix>
+        <slot name="prefix" />
+      </template>
+    </el-input>
   </el-form-item>
 </template>

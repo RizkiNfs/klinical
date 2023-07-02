@@ -4,7 +4,15 @@ const menus = [
   { title: 'Transaksi', to: '/app/transaction', icon: 'solar:hand-money-bold-duotone' },
   { title: 'Layanan', to: '/app/service', icon: 'solar:clipboard-heart-bold-duotone' },
   { title: 'Inventori', to: '/app/inventory', icon: 'solar:box-bold-duotone' },
-  { title: 'Keuangan', to: '/app/finance', icon: 'solar:wallet-money-bold-duotone' },
+  { 
+    title: 'Keuangan',
+    icon: 'solar:wallet-money-bold-duotone',
+    submenu: [
+      { title: 'Laporan Keuangan', to: '/app/finance/report'},
+      { title: 'Jurnal', to: '/app/finance/journal'},
+      { title: 'Akun', to: '/app/finance/account'},
+    ]
+  },
   { 
     title: 'Pasien', 
     icon: 'solar:user-id-bold-duotone',

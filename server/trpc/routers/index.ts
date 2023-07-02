@@ -1,4 +1,5 @@
 import { router } from '../trpc'
+import { accountsRouter } from './accounts'
 import { authRouter } from './auth'
 import { patientsRouter } from './patients'
 import { reservationsRouter } from './reservations'
@@ -7,6 +8,7 @@ import { inventoriesRouter } from './inventories'
 import { transactionsRouter } from './transaction'
 
 export const appRouter = router({
+  accounts: accountsRouter,
   auth: authRouter,
   patients: patientsRouter,
   reservations: reservationsRouter,

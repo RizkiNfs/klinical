@@ -9,7 +9,7 @@ const t = initTRPC.context<Context>().create()
 const isAuthed = t.middleware(async ({ next, ctx }) => {
   const runtimeConfig = useRuntimeConfig()
 
-  let token = getCookie(ctx.event, 'token') || ''
+  const token = getCookie(ctx.event, 'token') || ''
 
   try {
 
