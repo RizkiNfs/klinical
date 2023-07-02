@@ -12,6 +12,7 @@ export class Mongo {
   public Inventory: Collection | null = null
   public Transaction: Collection | null = null
   public Account: Collection | null = null
+  public Journal: Collection | null = null
 
   constructor(options?: MongoClientOptions ) {
     if (Mongo.instance) {
@@ -33,6 +34,7 @@ export class Mongo {
     this.Inventory = this.db.collection('inventories')
     this.Transaction = this.db.collection('transactions')
     this.Account = this.db.collection('accounts')
+    this.Journal = this.db.collection('journals')
 
     await this.createIndex()
   }

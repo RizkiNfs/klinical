@@ -9,6 +9,7 @@ const props = defineProps<{
     total?: number
   },
   deleteLabelKey?: string
+  spanMethod: (data: any) => any
 }>()
 
 
@@ -129,8 +130,9 @@ const ElForm = resolveComponent('el-form') as string
     </template>
     <el-table 
       class="w-full"
-      :data="props.data"
       size="large"
+      :data="props.data"
+      :span-method="spanMethod"
     >
       <el-table-column 
         v-for="column of props.columns"

@@ -5,6 +5,7 @@ import { patientsRouter } from './patients'
 import { reservationsRouter } from './reservations'
 import { servicesRouter } from './services'
 import { inventoriesRouter } from './inventories'
+import { journalsRouter } from './journals'
 import { transactionsRouter } from './transaction'
 
 export const appRouter = router({
@@ -14,6 +15,7 @@ export const appRouter = router({
   reservations: reservationsRouter,
   services: servicesRouter,
   inventories: inventoriesRouter,
+  journals: journalsRouter,
   transactions: transactionsRouter,
 })
 

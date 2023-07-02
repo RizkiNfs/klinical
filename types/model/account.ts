@@ -2,7 +2,7 @@ import { z } from 'zod'
 import { commonField } from './utils'
 
 
-const accountTypeSchema = z.union([
+export const accountTypeSchema = z.union([
   z.object({
     code: z.literal('1'),
     name: z.literal('asset'),

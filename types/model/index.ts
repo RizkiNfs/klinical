@@ -1,5 +1,6 @@
 export * from './account'
 export * from './inventory'
+export * from './journal'
 export * from './patient'
 export * from './reservation'
 export * from './service'
