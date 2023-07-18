@@ -1,5 +1,5 @@
-import dayjsModule from 'dayjs'
-import isToday from 'dayjs/plugin/isToday'
+import dayjsModule from 'dayjs/esm'
+import isToday from 'dayjs/esm/plugin/isToday'
 dayjsModule.locale('id')
 dayjsModule.extend(isToday)
 
