@@ -22,8 +22,8 @@ export class Mongo {
     this.options = options
   }
 
-  async connect(url: string, dbName: string): Promise<void> {
-    this.client = new MongoClient(`mongodb://${url}/${dbName}`, this.options)
+  async connect(uri: string): Promise<void> {
+    this.client = new MongoClient(uri, this.options)
     await this.client.connect()
 
     this.db = this.client.db()

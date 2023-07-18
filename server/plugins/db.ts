@@ -5,7 +5,7 @@ export default defineNitroPlugin(async () => {
   const runtimeConfig = useRuntimeConfig()
 
   try {
-    await mongo.connect(runtimeConfig.MONGO_URL, runtimeConfig.DB_NAME)
+    await mongo.connect(runtimeConfig.MONGO_URI)
     console.log('DB connection established')
   } catch(e) {
     console.log('failed connecting to DB : ', e)

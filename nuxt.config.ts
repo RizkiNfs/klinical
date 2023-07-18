@@ -2,8 +2,7 @@
 export default defineNuxtConfig({
   runtimeConfig: {
     JWT_SECRET: '',
-    MONGO_URL: '',
-    DB_NAME: '',
+    MONGO_URI: '',
     JWT_KEY: '',
   },
   build: {
